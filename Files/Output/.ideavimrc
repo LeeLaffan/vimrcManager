@@ -1,0 +1,1274 @@
+"" ----------------------------------------------------------
+"" ----------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\.order.vimrc)
+"" ----------------------------------------------------------
+"" ----------------------------------------------------------
+
+" todo.ideavimrc
+" vimrcManager.commands.ideavimrc
+" navigation.ideavimrc
+" leader.vimrc
+" sets.ideavimrc
+" commands.ideavimrc
+" windows.ideavimrc
+" breakpoints.ideavimrc
+" commands.ideavimrc
+" debug.ideavimrc 
+" errors.ideavimrc 
+" g_based_commands.ideavimrc
+" registers.ideavimrc
+" visual.ideavimrc
+" resharper.ideavimrc
+" .vimrc
+" 
+
+"" -------------------------------------------------------
+"" -------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\.order.vimrc)   :FileEnd
+"" -------------------------------------------------------
+"" -------------------------------------------------------
+
+"" ------------------------------------------------------------
+"" ------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\todo.ideavimrc)
+"" ------------------------------------------------------------
+"" ------------------------------------------------------------
+
+" TODO
+"
+" - Recording stops on search end
+" - C-w for small words like python_case
+" - Work out DB vs Debug
+" - Copy from db Window
+" - Close all editors but this
+" - Block Visual mode
+" - Copy line without carriage returns
+" - Surround
+" - File rename / create
+" - Variable rename
+" - Extract method
+" - Bookmarks
+" - S-j in visual
+" - bigger jump than S-j
+" - Workspaces
+" - Space-gi for gi Last Insert position
+" - File Structure
+" - Database windows
+" - Google
+" - Double debugging?
+" - Always select console window
+" - Copy file path
+" - Go to base symbols\/
+" - resize splits
+" - zz on search
+
+
+" DONE
+"
+" - Whichkey delay
+" - better start of line
+" - hl in insert mode (c-s-j for normalmode j)
+" - redo not working 
+" - leader a like leader i 
+" - \_dP"   Command to paste last register and copy
+" - Free up Vy to copy line
+" - Debug Actions
+" - Alt+Enter
+" - via working?
+" - Semi colon EOL return to position (Marks?)
+" - Increment numbers
+" - C-S-j / k = bigger jump
+" - Normal mode >> to >
+" - set notimeout to vim for leader
+" - Map Leader \ to launch applications cmds
+" - Dash = EOL
+" - difference gb vs ctrl+o
+" - Fix Indent in Rider
+" - zz on ctrl+O
+" - Paste in insert mode
+" - Breakpoints
+" - va not working
+" - Paste in insert mode not working
+
+" LEARN
+" =ap indent paragraph
+" o in visual mode to switch direction
+" V in visual mode to enter line visual
+
+" In visual mode 
+" :s/\(.*\)/data[0] ="\1";
+" To turn:
+" val1
+" val2
+" into:
+" data[0] = "val1";
+" data[0] = "val2";
+
+function! Test()
+    let l:old = getreg('8')
+endfunction
+
+"" ---------------------------------------------------------
+"" ---------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\todo.ideavimrc)   :FileEnd
+"" ---------------------------------------------------------
+"" ---------------------------------------------------------
+
+"" ------------------------------------------------------------------
+"" ------------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\navigation.ideavimrc)
+"" ------------------------------------------------------------------
+"" ------------------------------------------------------------------
+
+" Forward / Back
+sethandler <C-o> a:vim
+nnoremap <C-h> :action Back <CR>
+nnoremap gb <C-o>zz
+nnoremap <C-o> <C-o>zz
+let g:WhichKeyDesc_go_back = "gb  Go Back"
+
+sethandler <C-i> a:vim
+nnoremap <C-i> <Action>(Forward)
+nnoremap gf <C-i>zz
+let g:WhichKeyDesc_go_forward = "gf Go Forward"
+
+" Changes Forward/Back
+nnoremap g, :action JumpToLastChange <CR>
+let g:WhichKeyDesc_go_last_change = "g,  Go to Last Change"
+
+nnoremap g. <Action>(JumpToNextChange)
+let g:WhichKeyDesc_go_next_change = "g.  Change Next"
+
+nnoremap gx :action HideAllWindows <CR>
+nnoremap <Space>x :action HideAllWindows <CR>
+let g:WhichKeyDesc_hide_tools = "gx  Window Hide Tools"
+
+nnoremap <Space><Space> <C-Tab>
+
+" Bind C-k and C-j to up and down
+sethandler <C-h> a:ide
+sethandler <C-j> a:ide
+sethandler <C-k> a:ide
+sethandler <C-l> a:ide
+
+" File Navigation
+map <Space>l <action>(RecentLocations)
+map gR <action>(RecentLocations)
+let g:WhichKeyDesc_windows_recent_locations = "gR Recent Locations"
+
+map gr <action>(RecentFiles) <CR>
+get g:WhichKeyDesc_windows_recent = "gr Recent Files"
+
+map <Space><Tab> <action>(Switcher)
+let g:WhichKeyDesc_windows_switcher = "<Space><Tab>  Switcher"
+
+map gp <action>(FileChooser.GoBackward)
+let g:WhichKeyDesc_windows_prev_tab = "gp  Tab Previous"
+
+map gn <action>(FileChooser.GoBackward)
+let g:WhichKeyDesc_windows_next_tab = "gn Tab Next"
+
+
+"" ---------------------------------------------------------------
+"" ---------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\navigation.ideavimrc)   :FileEnd
+"" ---------------------------------------------------------------
+"" ---------------------------------------------------------------
+
+"" ----------------------------------------------------------
+"" ----------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\leader.vimrc)
+"" ----------------------------------------------------------
+"" ----------------------------------------------------------
+
+"Leader Key
+let mapleader=" "
+nmap <space> <Space>
+
+"" -------------------------------------------------------
+"" -------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\leader.vimrc)   :FileEnd
+"" -------------------------------------------------------
+"" -------------------------------------------------------
+
+"" ------------------------------------------------------------
+"" ------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\sets.ideavimrc)
+"" ------------------------------------------------------------
+"" ------------------------------------------------------------
+
+" ideaVim sets
+set ideajoin
+set idearefactormode=keep
+set showmode
+set showcmd
+set noerrorbells
+set visualbell
+" set surround
+
+set highlightedyank
+let g:highlightedyank_highlight_color = "default"
+let g:highlightedyank_highlight_duration = 10000
+
+" Plugins 
+" set sneak
+set quickscope
+
+" Import Plugins
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-scripts/argtextobj.vim'
+
+" Nerd Tree
+set nerdtree
+let g:NERDTreeMapActivateNode ='l'
+let g:NERDTreeMapJumpParent='h'
+
+nnoremap <Space>ss :NERDTree <CR>
+
+" Which-Key
+set which-key
+let g:WhichKey_DefaultDelay = 400
+let g:WhichKey_SortOrder = "by_description"
+
+let g:WhichKey_FontSize = 16
+
+let g:WhichKey_FontFamily = "sans-serif"
+
+
+let g:WhichKey_KeyColor = "keyword"
+let g:WhichKey_PrefixColor = "#f336b2"
+let g:WhichKey_CommandColor = "#41ead4"
+let g:WhichKey_CommandStyle = "italic"
+
+
+" Easy Motion
+set easymotion
+
+map <Space>f <Plug>(easymotion-s)
+let g:WhichKeyDesc_windows_easymotion_search = "<Space>f  EasyMotion Search"
+
+map <Space>j <Plug>(easymotion-bd-w)
+let g:WhichKeyDesc_windows_easymotion_search = "<Space>j EasyMotion Search"
+
+map <Space>k <Plug>(easymotion-bd-w)
+let g:WhichKeyDesc_windows_easymotion_search_back = "<Space>k EasyMotion Search Back"
+
+
+
+
+
+
+
+
+
+"" ---------------------------------------------------------
+"" ---------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\sets.ideavimrc)   :FileEnd
+"" ---------------------------------------------------------
+"" ---------------------------------------------------------
+
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\commands.ideavimrc)
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+
+
+"" .ideavimrc which-key
+let g:WhichKeyDesc_windows_ideavimrc = "\\v  .ideavimrc"
+"
+
+"" Open Files
+nnoremap \vv :e ~/.ideavimrc <CR>
+let g:WhichKeyDesc_windows_open_ideavimrc = "\\vv  .ideavimrc Open"
+"
+
+"" Reload
+nnoremap \r :action IdeaVim.ReloadVimRc.reload <CR>
+let g:WhichKeyDesc_windows_reload_ideavimrc = "\\vr .ideavimrc Reload"
+"
+
+nnoremap \c :call mng_FullRun() <CR>
+let g:WhichKeyDesc_windows_mng_full_run = "\\c vimrcManager Compile/Copy Full Run"
+"" Action List
+nnoremap \va :e L:\Vim\Ideavim\actionlist.txt<CR>
+let g:WhichKeyDesc_windows_show_actionlist = "\\va  Show Actionlist"
+
+
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\commands.ideavimrc)   :FileEnd
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+
+"" ---------------------------------------------------------------
+"" ---------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\windows.ideavimrc)
+"" ---------------------------------------------------------------
+"" ---------------------------------------------------------------
+
+" Vertical Split
+nnoremap <Space>vv :action SplitVertically <CR>
+let g:WhichKeyDesc_windows_vs = "<Space>vv  Split Vertical"
+
+" Close Current Split
+nnoremap <Space><Backspace> :action CloseAllEditors <CR>
+let g:WhichKeyDesc_windows_close_curr_split = "<Space><Backspace>  Close Current Split"
+
+nnoremap <Space>vx :action CloseAllEditors <CR>
+let g:WhichKeyDesc_windows_close_curr_split_2 = "<Space>vx  Close Current Split"
+
+nnoremap <Space>ww :action ToggleDistractionFreeMode <CR>
+
+nnoremap gx :action HideAllWindows <CR>
+nnoremap <Space>x :action HideAllWindows <CR>
+let g:WhichKeyDesc_windows_hide_tools = "gx  Window Hide Tools"
+
+nnoremap <Space>wb :action JumpToLastWindow <CR>
+let g:WhichKeyDesc_windows_last_window = "<Space>b Last Window"
+
+"" ------------------------------------------------------------
+"" ------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\windows.ideavimrc)   :FileEnd
+"" ------------------------------------------------------------
+"" ------------------------------------------------------------
+
+"" -------------------------------------------------------------------
+"" -------------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\breakpoints.ideavimrc)
+"" -------------------------------------------------------------------
+"" -------------------------------------------------------------------
+
+nnoremap <Space>dbra :action Debugger.RemoveAllBreakpoints <CR>    
+let g:WhichKeyDesc_windows_remove_breakpoints = "<Space>bra Remove All Breakpoints" 
+
+nnoremap <Space>dbrf :action Debugger.RemoveAllBreakpointsInFile <CR>    
+let g:WhichKeyDesc_windows_remove_breakpoints_file = "<Space>brf Remove File Breakpoints" 
+
+nnoremap <Space>dbb :action ToggleLineBreakpoint<CR>    
+let g:WhichKeyDesc_toggle_breakpoint = "<Space>dbb  Toggle Breakpoint" 
+
+"Eval expression
+
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\breakpoints.ideavimrc)   :FileEnd
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\commands.ideavimrc)
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+
+
+"" .ideavimrc which-key
+let g:WhichKeyDesc_windows_ideavimrc = "\\v  .ideavimrc"
+"
+
+"" Open Files
+nnoremap \vv :e ~/.ideavimrc <CR>
+let g:WhichKeyDesc_windows_open_ideavimrc = "\\vv  .ideavimrc Open"
+"
+
+"" Reload
+nnoremap \r :action IdeaVim.ReloadVimRc.reload <CR>
+let g:WhichKeyDesc_windows_reload_ideavimrc = "\\vr .ideavimrc Reload"
+"
+
+nnoremap \c :call mng_FullRun() <CR>
+let g:WhichKeyDesc_windows_mng_full_run = "\\c vimrcManager Compile/Copy Full Run"
+"" Action List
+nnoremap \va :e L:\Vim\Ideavim\actionlist.txt<CR>
+let g:WhichKeyDesc_windows_show_actionlist = "\\va  Show Actionlist"
+
+
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\commands.ideavimrc)   :FileEnd
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+
+"" ------------------------------------------------------------------------
+"" ------------------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\g_based_commands.ideavimrc)
+"" ------------------------------------------------------------------------
+"" ------------------------------------------------------------------------
+
+" TODO add .vimrc g commands
+
+" Go To keys
+nnoremap gu :action ShowUsages <CR>
+let g:WhichKeyDesc_windows_go_to_usages = "gu  Go to Usages"
+
+nnoremap gi :action GotoImplementation <CR>
+let g:WhichKeyDesc_windows_go_to_impl = "gi Go to Implementation"
+
+nnoremap gd :action GotoDeclaration <CR>
+let g:WhichKeyDesc_windows_go_to_declaration = "gd  Go to Declaration"
+
+nnoremap gc :action GoToClass <CR>
+let g:WhichKeyDesc_windows_go_to_class = "gc Go to Class"
+
+" FileStructurePopup
+nnoremap gs :action FileStructurePopup <CR>
+let g:WhichKeyDesc_find_path = "gs File Structure"
+
+"" ---------------------------------------------------------------------
+"" ---------------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\g_based_commands.ideavimrc)   :FileEnd
+"" ---------------------------------------------------------------------
+"" ---------------------------------------------------------------------
+
+"" -----------------------------------------------------------------
+"" -----------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\registers.ideavimrc)
+"" -----------------------------------------------------------------
+"" -----------------------------------------------------------------
+
+
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\registers.ideavimrc)   :FileEnd
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\visual.ideavimrc)
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+
+vnoremap <Space>f :action FindWordAtCaret <CR>
+
+"" -----------------------------------------------------------
+"" -----------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\visual.ideavimrc)   :FileEnd
+"" -----------------------------------------------------------
+"" -----------------------------------------------------------
+
+"" -----------------------------------------------------------------
+"" -----------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\resharper.ideavimrc)
+"" -----------------------------------------------------------------
+"" -----------------------------------------------------------------
+
+sethandler <C-w> a:vim
+map <C-w> :action CloseTab <CR>
+" map <C-w> :action EditorSelectWord <CR>
+"
+
+" Method Up/Down
+sethandler <C-[> a:vim
+map <C-[> :action MethodUp <CR>
+map <C-S-j> :action MethodUp <CR>
+
+sethandler <C-]> a:vim
+map <C-]> :action MethodDown <CR>
+map <C-S-k> :action MethodDown <CR>
+"
+
+" Bind Activate find in the keybinds
+sethandler <C-f> a:ide
+
+"Find"
+nnoremap <Space>ff :action FindInPath <CR>
+let g:WhichKeyDesc_find_path = "<Space>ff Find in Path"
+
+nnoremap <Space>fg :action Find <CR>
+let g:WhichKeyDesc_find = "<Space>fc  Find in File"
+
+nnoremap <Space>fc :action FindInFile <CR>
+let g:WhichKeyDesc_find_current = "<Space>fc  Find in File"
+
+nnoremap <Space>fn :action FindNext <CR>
+let g:WhichKeyDesc_find_current = "<Space>fn  Find Next"
+
+nnoremap <Space>fN :action FindPrevious <CR>
+let g:WhichKeyDesc_find_current = "<Space>fN  Find Previous"
+
+nnoremap <C-n> :action SearchEverywhere <CR>
+
+nnoremap <Space>sa :action SelectInProjectView <CR> ;
+let g:WhichKeyDesc_active_file = "<Space>sa  Select in Project View"
+" 
+
+" Comment
+nnoremap <Space>c :action CommentByLineComment <CR>
+vnoremap <Space>c :action CommentByLineComment <CR>
+let g:WhichKeyDesc_windows_comment = "<Space>c  Comment Line"
+"
+
+" Semicolon ;
+nnoremap <Space>; A;<ESC>h
+let g:WhichKeyDesc_semicolon = "<Space>;  Semicolon at End of Line"
+
+" Line Start End
+noremap 0 :action EditorLineStart <CR> h
+noremap - :action EditorLineEnd <CR> 
+
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\resharper.ideavimrc)   :FileEnd
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+
+"" ----------------------------------------------------
+"" ----------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\.vimrc)
+"" ----------------------------------------------------
+"" ----------------------------------------------------
+
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\.order.vimrc)
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+
+" sets.vimrc
+" navigation.vimrc
+" center_screen.vimrc
+" o_keys.vimrc
+" windows.vimrc
+" insert_chars.vimrc
+" registers.vimrc
+" visual.vimrc
+" macros.vimrc
+" marks.vimrc
+
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\.order.vimrc)   :FileEnd
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\sets.vimrc)
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+
+" Leader Key No Timeout
+set notimeout
+
+" Relative Line Numbers
+set number
+set rnu
+
+" Set Smart Case
+set ignorecase
+set smartcase
+
+" Highlight Search
+set incsearch
+set hlsearch
+map <Space>/ :noh <CR>
+let g:WhichKeyDesc_windows_clear_search = "<Space>/ Clear Search Highlighting"
+
+
+" LAFFAN
+
+"" -----------------------------------------------------------
+"" -----------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\sets.vimrc)   :FileEnd
+"" -----------------------------------------------------------
+"" -----------------------------------------------------------
+
+"" --------------------------------------------------------------------
+"" --------------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\navigation.vimrc)
+"" --------------------------------------------------------------------
+"" --------------------------------------------------------------------
+
+" Screen Up/Down Limit and Center
+nnoremap <S-j> 10jzz
+nnoremap <S-k> 10kzz
+
+nnoremap <C-S-j> <C-d>zz
+nnoremap <C-S-k> <C-u>zz
+
+" Underscore EOL
+nnoremap - $
+
+
+nnoremap n nzz
+nnoremap N Nzz
+
+"" -----------------------------------------------------------------
+"" -----------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\navigation.vimrc)   :FileEnd
+"" -----------------------------------------------------------------
+"" -----------------------------------------------------------------
+
+"" -----------------------------------------------------------------------
+"" -----------------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\center_screen.vimrc)
+"" -----------------------------------------------------------------------
+"" -----------------------------------------------------------------------
+
+" Center screen on File Start/End
+nnoremap gg ggzz
+let g:WhichKeyDesc_windows_start_of_file = "gg File Start"
+
+nnoremap gG Gzz
+let g:WhichKeyDesc_windows_end_of_file = "gG File End"
+
+" Center Screen
+nnoremap z zz
+
+"" --------------------------------------------------------------------
+"" --------------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\center_screen.vimrc)   :FileEnd
+"" --------------------------------------------------------------------
+"" --------------------------------------------------------------------
+
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\o_keys.vimrc)
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+
+" O Based keys
+nnoremap <Space>o o<ESC>k
+let g:WhichKeyDesc_windows_insert_line_below = "<Space>o  Insert Line Below"
+
+nnoremap <Space>O O<ESC>j
+let g:WhichKeyDesc_insert_line_above = "<Space>O  Insert Line Above"
+
+nnoremap <Space>do jddk
+" let g:WhichKeyDesc_windows_delete_line_below = "<Space>do  Delete Line Below"
+
+nnoremap <Space>dO kdd
+nnoremap <Space>DO kdd
+" let g:WhichKeyDesc_windows_delete_line_above = "<Space>dO  Delete Line Above"
+" let g:WhichKeyDesc_windows_delete_line_above_2 = "<Space>DO Delete Line Above"
+
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\o_keys.vimrc)   :FileEnd
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+
+"" -----------------------------------------------------------------
+"" -----------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\windows.vimrc)
+"" -----------------------------------------------------------------
+"" -----------------------------------------------------------------
+
+" Window Navigation
+nnoremap gh <C-w>h
+let g:WhichKeyDesc_windows_gh = "gh"
+nnoremap gj <C-w>j
+let g:WhichKeyDesc_windows_gj = "gj "
+nnoremap gk <C-w>k
+let g:WhichKeyDesc_windows_gk = "gk "
+nnoremap gl <C-w>l
+let g:WhichKeyDesc_windows_gl = "gl"
+
+nnoremap <Space>v :vs <CR>
+
+
+
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\windows.vimrc)   :FileEnd
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+
+"" ----------------------------------------------------------------------
+"" ----------------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\insert_chars.vimrc)
+"" ----------------------------------------------------------------------
+"" ----------------------------------------------------------------------
+
+" Insert One Character
+nnoremap <Space>i i_<ESC>r
+let g:WhichKeyDesc_windows_insert_char = "<Space>i Insert Char"
+
+nnoremap <Space>a a_<ESC>r
+let g:WhichKeyDesc_windows_insert_char_after = "<Space>i Insert Char After"
+
+
+"" -------------------------------------------------------------------
+"" -------------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\insert_chars.vimrc)   :FileEnd
+"" -------------------------------------------------------------------
+"" -------------------------------------------------------------------
+
+"" -------------------------------------------------------------------
+"" -------------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\registers.vimrc)
+"" -------------------------------------------------------------------
+"" -------------------------------------------------------------------
+
+" Cut to Correct Registers
+"V c "_c
+" vnoremap c "_c
+" nnoremap yc c
+" vnoremap yc c
+
+" Delete to Correct Registers
+nnoremap d "_d
+vnoremap d "_d
+" nnoremap yd d
+" vnoremap yd d
+nnoremap dy yydd
+nnoremap D yydd
+
+" nnoremap yp yyp
+
+" Copy/Paste/Cut/SelectAll
+sethandler <C-c> a:vim
+noremap <C-c> "+y
+
+sethandler <C-v> a:vim
+noremap <C-v> "+p
+
+" Fix Clip Paste in Insert
+inoremap <C-v> <ESC>"+pi
+
+" Cut
+sethandler <C-x> a:vim
+vnoremap <C-x> "+ygvd
+
+" Select All
+sethandler <C-a> a:vim
+noremap <C-a> <ESC>ggVG
+
+" Undo
+sethandler <C-u> a:vim
+noremap <C-u> <C-r>
+
+" Redo
+sethandler <C-z> a:vim
+noremap U <C-r>
+
+" Paste in Insert
+inoremap -p <ESC>""pa
+
+" :reg Command
+nnoremap <Space>P :reg <CR>
+let g:WhichKeyDesc_windows_paste_reg = "<Space>P Paste Registry"
+
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\registers.vimrc)   :FileEnd
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\visual.vimrc)
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+
+" Indentation Visual Reselect
+
+vnoremap < <gv
+vnoremap > >gv
+
+nnoremap < <<
+nnoremap > >>
+
+" vv Select Line
+vnoremap v <ESC>V
+
+" Delete to register
+vnoremap <Space>d d
+vnoremap D d
+
+vnoremap p "_dp
+
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\visual.vimrc)   :FileEnd
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\macros.vimrc)
+"" ----------------------------------------------------------------
+"" ----------------------------------------------------------------
+
+" Recordings
+nnoremap <Space>q @
+nnoremap <Space>q. @@
+
+nnoremap <c-q> @
+nnoremap <c-q>q @@
+
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\macros.vimrc)   :FileEnd
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+
+"" ---------------------------------------------------------------
+"" ---------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\marks.vimrc)
+"" ---------------------------------------------------------------
+"" ---------------------------------------------------------------
+
+" Mark
+nnoremap <Space>m :execute "normal! `" <CR>
+let g:WhichKeyDesc_windows_mark = "<Space>m Mark `"
+
+"" ------------------------------------------------------------
+"" ------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\marks.vimrc)   :FileEnd
+"" ------------------------------------------------------------
+"" ------------------------------------------------------------
+
+"" ---------------------------------------------------------------
+"" ---------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\numbers.vim)
+"" ---------------------------------------------------------------
+"" ---------------------------------------------------------------
+
+let g:WhichKeyDesc_windows_paste_reg = "<Space>P Paste Registry"
+
+"" ------------------------------------------------------------
+"" ------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\numbers.vim)   :FileEnd
+"" ------------------------------------------------------------
+"" ------------------------------------------------------------
+
+"" ----------------------------------------------------------------------------
+"" ----------------------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\register_functions.vimrc)
+"" ----------------------------------------------------------------------------
+"" ----------------------------------------------------------------------------
+
+function! CycleRegsBack()
+    execute ':let @*=@9'
+    execute ':let @9=@8'
+    execute ':let @8=@7' 
+    execute ':let @7=@6' 
+    execute ':let @6=@5' 
+    execute ':let @5=@4' 
+    execute ':let @4=@3' 
+    execute ':let @3=@2' 
+    execute ':let @2=@1' 
+    execute ':let @1=@0' 
+    execute ':let @0=@*' 
+    
+    execute ':let @"=@*' 
+endfunction
+
+function! CycleRegsDown()
+    execute ':let @*=@0'
+    execute ':let @0=@1'
+    execute ':let @1=@2' 
+    execute ':let @2=@3' 
+    execute ':let @3=@4' 
+    execute ':let @4=@5' 
+    execute ':let @5=@6' 
+    execute ':let @6=@7' 
+    execute ':let @7=@8' 
+    execute ':let @8=@9' 
+    execute ':let @9=@*' 
+    
+    execute ':let @"=@0' 
+endfunction
+
+function! PasteBefore()
+    execute ':pu'
+    execute ':call CycleRegsDown()'
+endfunction
+
+nnoremap y :call CycleRegsBack() <CR> y
+
+sethandler <C-p> a:vim
+nnoremap <C-p> :call CycleRegsDown() <CR>
+
+sethandler <C-y> a:vim
+nnoremap <C-y> :call CycleRegsBack() <CR>
+function! CycleRegsBack()
+    execute ':let @*=@9'
+    execute ':let @9=@8'
+    execute ':let @8=@7' 
+    execute ':let @7=@6' 
+    execute ':let @6=@5' 
+    execute ':let @5=@4' 
+    execute ':let @4=@3' 
+    execute ':let @3=@2' 
+    execute ':let @2=@1' 
+    execute ':let @1=@0' 
+    execute ':let @0=@*' 
+    
+    execute ':let @"=@*' 
+endfunction
+
+function! CycleRegsDown()
+    execute ':let @*=@0'
+    execute ':let @0=@1'
+    execute ':let @1=@2' 
+    execute ':let @2=@3' 
+    execute ':let @3=@4' 
+    execute ':let @4=@5' 
+    execute ':let @5=@6' 
+    execute ':let @6=@7' 
+    execute ':let @7=@8' 
+    execute ':let @8=@9' 
+    execute ':let @9=@*' 
+    
+    execute ':let @"=@0' 
+endfunction
+
+function! PasteBefore()
+    execute ':pu'
+    execute ':call CycleRegsDown()'
+endfunction
+
+nnoremap y :call CycleRegsBack() <CR> y
+
+sethandler <C-p> a:vim
+nnoremap <C-p> :call CycleRegsDown() <CR>
+
+sethandler <C-y> a:vim
+nnoremap <C-y> :call CycleRegsBack() <CR>
+function! CycleRegsBack()
+    execute ':let @*=@9'
+    execute ':let @9=@8'
+    execute ':let @8=@7' 
+    execute ':let @7=@6' 
+    execute ':let @6=@5' 
+    execute ':let @5=@4' 
+    execute ':let @4=@3' 
+    execute ':let @3=@2' 
+    execute ':let @2=@1' 
+    execute ':let @1=@0' 
+    execute ':let @0=@*' 
+    
+    execute ':let @"=@*' 
+endfunction
+
+function! CycleRegsDown()
+    execute ':let @*=@0'
+    execute ':let @0=@1'
+    execute ':let @1=@2' 
+    execute ':let @2=@3' 
+    execute ':let @3=@4' 
+    execute ':let @4=@5' 
+    execute ':let @5=@6' 
+    execute ':let @6=@7' 
+    execute ':let @7=@8' 
+    execute ':let @8=@9' 
+    execute ':let @9=@*' 
+    
+    execute ':let @"=@0' 
+endfunction
+
+function! PasteBefore()
+    execute ':pu'
+    execute ':call CycleRegsDown()'
+endfunction
+
+nnoremap y :call CycleRegsBack() <CR> y
+
+sethandler <C-p> a:vim
+nnoremap <C-p> :call CycleRegsDown() <CR>
+
+sethandler <C-y> a:vim
+nnoremap <C-y> :call CycleRegsBack() <CR>
+
+"" -------------------------------------------------------------------------
+"" -------------------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\register_functions.vimrc)   :FileEnd
+"" -------------------------------------------------------------------------
+"" -------------------------------------------------------------------------
+
+"" -----------------------------------------------------------------
+"" -----------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrc\selects.vimrc)
+"" -----------------------------------------------------------------
+"" -----------------------------------------------------------------
+
+" Quote
+" v/c/d i"
+nnoremap viv vi"
+let g:WhichKeyDesc_vi_quote = "viv Select In Quotes"
+nnoremap civ ci"
+let g:WhichKeyDesc_ci_quote = "civ  Select In Quotes"
+nnoremap div di"
+let g:WhichKeyDesc_di_quote = "div  Select In Quotes"
+
+" v/c/d a"
+nnoremap vav va"
+let g:WhichKeyDesc_va_quote = "vav Select Around Quotes"
+nnoremap cav va"
+let g:WhichKeyDesc_ca_quote = "vav Select Around Quotes"
+nnoremap dav va"
+let g:WhichKeyDesc_da_quote = "vav  Select Around Quotes"
+
+" Brace
+ v/c/d i{
+nnoremap vic vi{
+let g:WhichKeyDesc_vi_brace = "viv  Select In Braces"
+nnoremap cic ci{
+let g:WhichKeyDesc_ci_brace = "civ Select In Braces"
+nnoremap dic di{
+let g:WhichKeyDesc_di_brace = "div Select In Braces"
+
+" v/c/d a{
+nnoremap vav va{
+let g:WhichKeyDesc_va_brace = "vav  Select Around Braces"
+nnoremap cav va{
+let g:WhichKeyDesc_ca_brace = "vav  Select Around Braces"
+nnoremap dav va{
+let g:WhichKeyDesc_da_brace = "vav  Select Around Braces"
+
+" Squares
+" v/c/d i[
+nnoremap vis vi[
+let g:WhichKeyDesc_vi_square = "viv  Select In Squares"
+nnoremap cis ci[
+let g:WhichKeyDesc_ci_square = "civ Select In Squares"
+nnoremap dis di[
+let g:WhichKeyDesc_di_square = "div Select In Squares"
+
+" v/c/d a[
+nnoremap vas va[
+let g:WhichKeyDesc_va_square = "vav  Select Around Squares"
+nnoremap cas va[
+let g:WhichKeyDesc_ca_square = "vav  Select Around Squares"
+nnoremap das va[
+let g:WhichKeyDesc_da_square = "vav  Select Around Squares"
+
+" Apos '
+" v/c/d i'
+nnoremap via vi'
+let g:WhichKeyDesc_vi_apos = "viv  Select In Apos'"
+nnoremap cia ci'
+let g:WhichKeyDesc_ci_apos = "civ Select In Apos'"
+nnoremap dia di'
+let g:WhichKeyDesc_di_apos = "div Select In Apos'"
+
+" v/c/d a'
+nnoremap vaa va'
+let g:WhichKeyDesc_va_apos = "vav  Select Around Apos'"
+nnoremap caa va'
+let g:WhichKeyDesc_ca_apos = "vav  Select Around Apos'"
+nnoremap daa va'
+let g:WhichKeyDesc_da_apos = "vav  Select Around Apos'"
+
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrc\selects.vimrc)   :FileEnd
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+
+
+"" -------------------------------------------------
+"" -------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\.vimrc)   :FileEnd
+"" -------------------------------------------------
+"" -------------------------------------------------
+
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\debug.ideavimrc)
+"" -------------------------------------------------------------
+"" -------------------------------------------------------------
+
+" Debug Window handled by ide
+sethandler <C-d> a:ide
+
+nnoremap <Space>dc :action ChooseDebugConfiguration <CR>    
+let g:WhichKeyDesc_windows_debug_config = "<Space>dc Debug Configuration"
+
+nnoremap <Space>dd :action Debug<CR>
+let g:WhichKeyDesc_windows_debug = "<Space>dd Debug"
+
+nnoremap <Space>ds :action Stop<CR>
+let g:WhichKeyDesc_windows_stop = "<Space>ds  Stop"
+
+nnoremap <Space>dc :action Resume <CR>    
+let g:WhichKeyDesc_resume_pregram = "<Space>dc Resume"
+
+nnoremap <Space>drr :action Run<CR>
+let g:WhichKeyDesc_windows_run = "<Space>drr Run"
+
+nnoremap <Space>df :action StepOver <CR>    
+let g:WhichKeyDesc_windows_step_over = "<Space>df  Step Over"
+
+nnoremap <Space>dg :action StepInto <CR>    
+let g:WhichKeyDesc_windows_step_into = "<Space>dg Step Into"
+
+nnoremap <Space>dm :action StepOut <CR>    
+let g:WhichKeyDesc_windows_step_out = "<Space>do Step Out of Method"
+
+nnoremap <Space>de :action EvaluateExpression <CR>    
+let g:WhichKeyDesc_windows_eval_var = "<Space>de  Evaluate Variable"
+
+"" ----------------------------------------------------------
+"" ----------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\debug.ideavimrc)   :FileEnd
+"" ----------------------------------------------------------
+"" ----------------------------------------------------------
+
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\errors.ideavimrc)
+"" --------------------------------------------------------------
+"" --------------------------------------------------------------
+
+"" Error Forward/Back
+nnoremap geb :action ReSharperGotoPrevErrorInSolution <CR>
+let g:WhichKeyDesc_windows_prev_error = "gE Error Prev"
+
+nnoremap gen :action ReSharperGotoNextErrorInSolution <CR>
+let g:WhichKeyDesc_windows_next_error = "ge Error Next"
+"
+
+nnoremap ged :action ShowErrorDescription <CR>
+let g:WhichKeyDesc_error_desc = "ged Show Error Description"
+                               
+nnoremap <Space><CR> :action ShowIntentionActions<CR>
+let g:WhichKeyDesc_show_intentions = "<Space><CR>  Intention Actions"
+
+"" -----------------------------------------------------------
+"" -----------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\errors.ideavimrc)   :FileEnd
+"" -----------------------------------------------------------
+"" -----------------------------------------------------------
+
+"" -----------------------------------------------------------------------
+"" -----------------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\file_management.ideavimrc)
+"" -----------------------------------------------------------------------
+"" -----------------------------------------------------------------------
+
+nnoremap <Space>sa :action SelectInProjectView <CR> ;
+let g:WhichKeyDesc_active_file = "<Space>sa  Select in Project View"
+
+"" remove above, space r for files
+let g:WhichKeyDesc_windows_recent_files = "<Space>  r Recent Files"
+
+nnoremap <Space>rp :action FileChooser.GotoProject <CR>
+let g:WhichKeyDesc_active_file = "<Space>sa Select in Project View"
+
+
+" Ctrl+R to handle bind
+nnoremap <Space>rr :action RenameFile <CR>
+let g:WhichKeyDesc_active_file = "<Space>sa  Select in Project View"
+
+" Handle with delete key in explorer bind
+nnoremap <Space>rd :action DeleteFile <CR>
+let g:WhichKeyDesc_active_file = "<Space>sa  Select in Project View"
+
+sethandler <C-s-n> a:ide
+
+" nnoremap n :action FileChooser.NewFile <CR>
+AddRiderItem
+
+ExportToTextFile                                   <A-O>
+FileChooser.Delete
+
+FileChooser.GoBackward
+FileChooser.GoForward
+FileChooser.GotoProject
+
+FileChooser.NewFile
+NewFile
+FileChooser.NewFolder                              <A-Ins>
+FileStructurePopup                                 <C-F12> <C-S>
+
+CopyAbsolutePath                                   <C-S-C>
+FindInFiles.Results.ContextMenu
+"rename?
+" copy path
+
+runShellFileAction                                 <C-S-F10>
+BlankDiffViewerEditorPopupMenu
+
+"" --------------------------------------------------------------------
+"" --------------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\file_management.ideavimrc)   :FileEnd
+"" --------------------------------------------------------------------
+"" --------------------------------------------------------------------
+
+"" -------------------------------------------------------------------------
+"" -------------------------------------------------------------------------
+"    FileStart: (L:\Vim\vimrcManagerData\Input\vimrcManager.commands.vimrc)
+"" -------------------------------------------------------------------------
+"" -------------------------------------------------------------------------
+
+let g:mng_exe_path = "L:\\Code\\vimrcManager\\vimrcManager\\bin\\Debug\\net7.0\\vimrcManager.exe"
+
+"" Collate .vimrc
+
+let g:mng_vrc_idir = "L:\\Vim\\vimrcManagerData\\Input\\vimrc"
+let g:mng_vrc_ofile = "L:\\Vim\\vimrcManagerData\\Input\\.vimrc"
+
+nnoremap \mv :call mng_CollateVimrc()<CR>
+let g:WhichKeyDesc_windows_vrcm_copy_vimrc = "\\mv Collate .vimrc"
+
+function! mng_CollateVimrc()
+   let cmd = ":call mng_CollateFiles('" . g:mng_exe_path . "', '" . g:mng_vrc_idir . "', '" . g:mng_vrc_ofile . "')"
+   execute cmd
+endfunction
+"
+
+"" Collate .ideavimrc
+
+let g:mng_ivrc_idir = "L:\\Vim\\vimrcManagerData\\Input"
+let g:mng_ivrc_ofile = "L:\\Vim\\vimrcManagerData\\Output\\.ideavimrc"
+
+nnoremap \mi :call mng_CollateIdeaVimrc() <CR>
+let g:WhichKeyDesc_windows_vrcm_copy_vimrc = "\\mi Collate .ideavimrc"
+
+function! mng_CollateIdeaVimrc()
+   let cmd = ":call mng_CollateFiles('" . g:mng_exe_path . "', '" . g:mng_ivrc_idir . "', '" . g:mng_ivrc_ofile . "')"
+   execute cmd
+endfunction
+"
+
+"" Copy .ideavimrc
+
+let g:ideavimrc_path = "C:\\Users\\l\\.ideavimrc"
+
+nnoremap \mc :!call mng_CopyToIdeaVimrc() <CR>
+let g:WhichKeyDesc_windows_copy_ideavimrc = "\\mc  Copy .ideavimrc from vimrcManager"
+
+function! mng_CopyToIdeaVimrc()
+    let cmd = ":call mng_CopyFile('" . g:mng_ivrc_ofile . "', '" . g:ideavimrc_path . "')"
+    execute cmd
+endfunction 
+"
+
+"" Full Run
+function! mng_FullRun()
+    execute ":action SaveAll"
+    call mng_CollateVimrc()
+    call mng_CollateIdeaVimrc()
+    call mng_CopyToIdeaVimrc()
+    execute ":action IdeaVim.ReloadVimRc.reload"
+endfunction
+" 
+
+"" Functions
+
+function! mng_CopyFile(input_file, output_file)
+    execute ":!copy " . a:input_file . " " . a:output_file
+endfunction
+
+function! mng_CollateFiles(exe_path, input_dir, output_file)
+    let l:run_mode = " --runmode CollateToFile"
+    let l:input_dir = " --inputdir " . a:input_dir
+    let l:output_file = " --outputfile " . a:output_file
+    let l:cmd = a:exe_path . l:run_mode . l:input_dir . l:output_file
+    
+"    echo cmd
+    execute ":!" . l:cmd
+endfunction
+"
+
+"" ----------------------------------------------------------------------
+"" ----------------------------------------------------------------------
+"    (L:\Vim\vimrcManagerData\Input\vimrcManager.commands.vimrc)   :FileEnd
+"" ----------------------------------------------------------------------
+"" ----------------------------------------------------------------------
+
