@@ -1,0 +1,48 @@
+﻿" Forward / Back
+sethandler <C-o> a:vim
+nnoremap <C-h> :action Back <CR>
+nnoremap gb <C-o>zz
+nnoremap <C-o> <C-o>zz
+let g:WhichKeyDesc_go_back = "gb  Go Back"
+
+sethandler <C-i> a:vim
+nnoremap <C-i> <Action>(Forward)
+nnoremap gf <C-i>zz
+let g:WhichKeyDesc_go_forward = "gf Go Forward"
+
+" Changes Forward/Back
+nnoremap g, :action JumpToLastChange <CR>
+let g:WhichKeyDesc_go_last_change = "g,  Go to Last Change"
+
+nnoremap g. <Action>(JumpToNextChange)
+let g:WhichKeyDesc_go_next_change = "g.  Change Next"
+
+nnoremap gx :action HideAllWindows <CR>
+nnoremap <Space>x :action HideAllWindows <CR>
+let g:WhichKeyDesc_hide_tools = "gx  Window Hide Tools"
+
+nnoremap <Space><Space> <C-Tab>
+
+" Bind C-k and C-j to up and down
+sethandler <C-h> a:ide
+sethandler <C-j> a:ide
+sethandler <C-k> a:ide
+sethandler <C-l> a:ide
+
+" File Navigation
+map <Space>l <action>(RecentLocations)
+map gR <action>(RecentLocations)
+let g:WhichKeyDesc_windows_recent_locations = "gR Recent Locations"
+
+map gr <action>(RecentFiles) <CR>
+get g:WhichKeyDesc_windows_recent = "gr Recent Files"
+
+map <Space><Tab> <action>(Switcher)
+let g:WhichKeyDesc_windows_switcher = "<Space><Tab>  Switcher"
+
+map gp <action>(FileChooser.GoBackward)
+let g:WhichKeyDesc_windows_prev_tab = "gp  Tab Previous"
+
+map gn <action>(FileChooser.GoBackward)
+let g:WhichKeyDesc_windows_next_tab = "gn Tab Next"
+

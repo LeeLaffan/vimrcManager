@@ -1,0 +1,42 @@
+﻿nnoremap <Space>sa :action SelectInProjectView <CR> ;
+let g:WhichKeyDesc_active_file = "<Space>sa  Select in Project View"
+
+"" remove above, space r for files
+let g:WhichKeyDesc_windows_recent_files = "<Space>  r Recent Files"
+
+nnoremap <Space>rp :action FileChooser.GotoProject <CR>
+let g:WhichKeyDesc_active_file = "<Space>sa Select in Project View"
+
+
+" Ctrl+R to handle bind
+nnoremap <Space>rr :action RenameFile <CR>
+let g:WhichKeyDesc_active_file = "<Space>sa  Select in Project View"
+
+" Handle with delete key in explorer bind
+nnoremap <Space>rd :action DeleteFile <CR>
+let g:WhichKeyDesc_active_file = "<Space>sa  Select in Project View"
+
+sethandler <C-s-n> a:ide
+
+" nnoremap n :action FileChooser.NewFile <CR>
+AddRiderItem
+
+ExportToTextFile                                   <A-O>
+FileChooser.Delete
+
+FileChooser.GoBackward
+FileChooser.GoForward
+FileChooser.GotoProject
+
+FileChooser.NewFile
+NewFile
+FileChooser.NewFolder                              <A-Ins>
+FileStructurePopup                                 <C-F12> <C-S>
+
+CopyAbsolutePath                                   <C-S-C>
+FindInFiles.Results.ContextMenu
+"rename?
+" copy path
+
+runShellFileAction                                 <C-S-F10>
+BlankDiffViewerEditorPopupMenu

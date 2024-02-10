@@ -1,0 +1,13 @@
+﻿"" Error Forward/Back
+nnoremap geb :action ReSharperGotoPrevErrorInSolution <CR>
+let g:WhichKeyDesc_windows_prev_error = "gE Error Prev"
+
+nnoremap gen :action ReSharperGotoNextErrorInSolution <CR>
+let g:WhichKeyDesc_windows_next_error = "ge Error Next"
+"
+
+nnoremap ged :action ShowErrorDescription <CR>
+let g:WhichKeyDesc_error_desc = "ged Show Error Description"
+                               
+nnoremap <Space><CR> :action ShowIntentionActions<CR>
+let g:WhichKeyDesc_show_intentions = "<Space><CR>  Intention Actions"

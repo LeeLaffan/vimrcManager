@@ -1,0 +1,73 @@
+﻿" TODO
+"
+" - Recording stops on search end
+" - C-w for small words like python_case
+" - Work out DB vs Debug
+" - Copy from db Window
+" - Close all editors but this
+" - Block Visual mode
+" - Copy line without carriage returns
+" - Surround
+" - File rename / create
+" - Variable rename
+" - Extract method
+" - Bookmarks
+" - S-j in visual
+" - bigger jump than S-j
+" - Workspaces
+" - Space-gi for gi Last Insert position
+" - File Structure
+" - Database windows
+" - Google
+" - Double debugging?
+" - Always select console window
+" - Copy file path
+" - Go to base symbols\/
+" - resize splits
+" - zz on search
+
+
+" DONE
+"
+" - Whichkey delay
+" - better start of line
+" - hl in insert mode (c-s-j for normalmode j)
+" - redo not working 
+" - leader a like leader i 
+" - \_dP"   Command to paste last register and copy
+" - Free up Vy to copy line
+" - Debug Actions
+" - Alt+Enter
+" - via working?
+" - Semi colon EOL return to position (Marks?)
+" - Increment numbers
+" - C-S-j / k = bigger jump
+" - Normal mode >> to >
+" - set notimeout to vim for leader
+" - Map Leader \ to launch applications cmds
+" - Dash = EOL
+" - difference gb vs ctrl+o
+" - Fix Indent in Rider
+" - zz on ctrl+O
+" - Paste in insert mode
+" - Breakpoints
+" - va not working
+" - Paste in insert mode not working
+
+" LEARN
+" =ap indent paragraph
+" o in visual mode to switch direction
+" V in visual mode to enter line visual
+
+" In visual mode 
+" :s/\(.*\)/data[0] ="\1";
+" To turn:
+" val1
+" val2
+" into:
+" data[0] = "val1";
+" data[0] = "val2";
+
+function! Test()
+    let l:old = getreg('8')
+endfunction

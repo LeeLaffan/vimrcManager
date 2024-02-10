@@ -1,0 +1,53 @@
+﻿sethandler <C-w> a:vim
+map <C-w> :action CloseTab <CR>
+" map <C-w> :action EditorSelectWord <CR>
+"
+
+" Method Up/Down
+sethandler <C-[> a:vim
+map <C-[> :action MethodUp <CR>
+map <C-S-j> :action MethodUp <CR>
+
+sethandler <C-]> a:vim
+map <C-]> :action MethodDown <CR>
+map <C-S-k> :action MethodDown <CR>
+"
+
+" Bind Activate find in the keybinds
+sethandler <C-f> a:ide
+
+"Find"
+nnoremap <Space>ff :action FindInPath <CR>
+let g:WhichKeyDesc_find_path = "<Space>ff Find in Path"
+
+nnoremap <Space>fg :action Find <CR>
+let g:WhichKeyDesc_find = "<Space>fc  Find in File"
+
+nnoremap <Space>fc :action FindInFile <CR>
+let g:WhichKeyDesc_find_current = "<Space>fc  Find in File"
+
+nnoremap <Space>fn :action FindNext <CR>
+let g:WhichKeyDesc_find_current = "<Space>fn  Find Next"
+
+nnoremap <Space>fN :action FindPrevious <CR>
+let g:WhichKeyDesc_find_current = "<Space>fN  Find Previous"
+
+nnoremap <C-n> :action SearchEverywhere <CR>
+
+nnoremap <Space>sa :action SelectInProjectView <CR> ;
+let g:WhichKeyDesc_active_file = "<Space>sa  Select in Project View"
+" 
+
+" Comment
+nnoremap <Space>c :action CommentByLineComment <CR>
+vnoremap <Space>c :action CommentByLineComment <CR>
+let g:WhichKeyDesc_windows_comment = "<Space>c  Comment Line"
+"
+
+" Semicolon ;
+nnoremap <Space>; A;<ESC>h
+let g:WhichKeyDesc_semicolon = "<Space>;  Semicolon at End of Line"
+
+" Line Start End
+noremap 0 :action EditorLineStart <CR> h
+noremap - :action EditorLineEnd <CR> 

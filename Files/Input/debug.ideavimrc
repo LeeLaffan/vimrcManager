@@ -1,0 +1,29 @@
+﻿" Debug Window handled by ide
+sethandler <C-d> a:ide
+
+nnoremap <Space>dc :action ChooseDebugConfiguration <CR>    
+let g:WhichKeyDesc_windows_debug_config = "<Space>dc Debug Configuration"
+
+nnoremap <Space>dd :action Debug<CR>
+let g:WhichKeyDesc_windows_debug = "<Space>dd Debug"
+
+nnoremap <Space>ds :action Stop<CR>
+let g:WhichKeyDesc_windows_stop = "<Space>ds  Stop"
+
+nnoremap <Space>dc :action Resume <CR>    
+let g:WhichKeyDesc_resume_pregram = "<Space>dc Resume"
+
+nnoremap <Space>drr :action Run<CR>
+let g:WhichKeyDesc_windows_run = "<Space>drr Run"
+
+nnoremap <Space>df :action StepOver <CR>    
+let g:WhichKeyDesc_windows_step_over = "<Space>df  Step Over"
+
+nnoremap <Space>dg :action StepInto <CR>    
+let g:WhichKeyDesc_windows_step_into = "<Space>dg Step Into"
+
+nnoremap <Space>dm :action StepOut <CR>    
+let g:WhichKeyDesc_windows_step_out = "<Space>do Step Out of Method"
+
+nnoremap <Space>de :action EvaluateExpression <CR>    
+let g:WhichKeyDesc_windows_eval_var = "<Space>de  Evaluate Variable"

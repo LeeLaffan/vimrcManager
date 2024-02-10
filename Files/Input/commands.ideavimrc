@@ -1,0 +1,21 @@
+﻿
+"" .ideavimrc which-key
+let g:WhichKeyDesc_windows_ideavimrc = "\\v  .ideavimrc"
+"
+
+"" Open Files
+nnoremap \vv :e ~/.ideavimrc <CR>
+let g:WhichKeyDesc_windows_open_ideavimrc = "\\vv  .ideavimrc Open"
+"
+
+"" Reload
+nnoremap \r :action IdeaVim.ReloadVimRc.reload <CR>
+let g:WhichKeyDesc_windows_reload_ideavimrc = "\\vr .ideavimrc Reload"
+"
+
+nnoremap \c :call mng_FullRun() <CR>
+let g:WhichKeyDesc_windows_mng_full_run = "\\c vimrcManager Compile/Copy Full Run"
+"" Action List
+nnoremap \va :e L:\Vim\Ideavim\actionlist.txt<CR>
+let g:WhichKeyDesc_windows_show_actionlist = "\\va  Show Actionlist"
+

@@ -1,0 +1,63 @@
+﻿" ideaVim sets
+set ideajoin
+set idearefactormode=keep
+set showmode
+set showcmd
+set noerrorbells
+set visualbell
+" set surround
+
+set highlightedyank
+let g:highlightedyank_highlight_color = "default"
+let g:highlightedyank_highlight_duration = 10000
+
+" Plugins 
+" set sneak
+set quickscope
+
+" Import Plugins
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-scripts/argtextobj.vim'
+
+" Nerd Tree
+set nerdtree
+let g:NERDTreeMapActivateNode ='l'
+let g:NERDTreeMapJumpParent='h'
+
+nnoremap <Space>ss :NERDTree <CR>
+
+" Which-Key
+set which-key
+let g:WhichKey_DefaultDelay = 400
+let g:WhichKey_SortOrder = "by_description"
+
+let g:WhichKey_FontSize = 16
+
+let g:WhichKey_FontFamily = "sans-serif"
+
+
+let g:WhichKey_KeyColor = "keyword"
+let g:WhichKey_PrefixColor = "#f336b2"
+let g:WhichKey_CommandColor = "#41ead4"
+let g:WhichKey_CommandStyle = "italic"
+
+
+" Easy Motion
+set easymotion
+
+map <Space>f <Plug>(easymotion-s)
+let g:WhichKeyDesc_windows_easymotion_search = "<Space>f  EasyMotion Search"
+
+map <Space>j <Plug>(easymotion-bd-w)
+let g:WhichKeyDesc_windows_easymotion_search = "<Space>j EasyMotion Search"
+
+map <Space>k <Plug>(easymotion-bd-w)
+let g:WhichKeyDesc_windows_easymotion_search_back = "<Space>k EasyMotion Search Back"
+
+
+
+
+
+
+
+

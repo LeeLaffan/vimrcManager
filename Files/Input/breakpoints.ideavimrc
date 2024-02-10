@@ -1,0 +1,10 @@
+﻿nnoremap <Space>dbra :action Debugger.RemoveAllBreakpoints <CR>    
+let g:WhichKeyDesc_windows_remove_breakpoints = "<Space>bra Remove All Breakpoints" 
+
+nnoremap <Space>dbrf :action Debugger.RemoveAllBreakpointsInFile <CR>    
+let g:WhichKeyDesc_windows_remove_breakpoints_file = "<Space>brf Remove File Breakpoints" 
+
+nnoremap <Space>dbb :action ToggleLineBreakpoint<CR>    
+let g:WhichKeyDesc_toggle_breakpoint = "<Space>dbb  Toggle Breakpoint" 
+
+"Eval expression

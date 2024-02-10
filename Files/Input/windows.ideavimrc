@@ -1,0 +1,19 @@
+﻿" Vertical Split
+nnoremap <Space>vv :action SplitVertically <CR>
+let g:WhichKeyDesc_windows_vs = "<Space>vv  Split Vertical"
+
+" Close Current Split
+nnoremap <Space><Backspace> :action CloseAllEditors <CR>
+let g:WhichKeyDesc_windows_close_curr_split = "<Space><Backspace>  Close Current Split"
+
+nnoremap <Space>vx :action CloseAllEditors <CR>
+let g:WhichKeyDesc_windows_close_curr_split_2 = "<Space>vx  Close Current Split"
+
+nnoremap <Space>ww :action ToggleDistractionFreeMode <CR>
+
+nnoremap gx :action HideAllWindows <CR>
+nnoremap <Space>x :action HideAllWindows <CR>
+let g:WhichKeyDesc_windows_hide_tools = "gx  Window Hide Tools"
+
+nnoremap <Space>wb :action JumpToLastWindow <CR>
+let g:WhichKeyDesc_windows_last_window = "<Space>b Last Window"

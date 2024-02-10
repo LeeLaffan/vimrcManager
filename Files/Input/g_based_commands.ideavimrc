@@ -1,0 +1,18 @@
+﻿" TODO add .vimrc g commands
+
+" Go To keys
+nnoremap gu :action ShowUsages <CR>
+let g:WhichKeyDesc_windows_go_to_usages = "gu  Go to Usages"
+
+nnoremap gi :action GotoImplementation <CR>
+let g:WhichKeyDesc_windows_go_to_impl = "gi Go to Implementation"
+
+nnoremap gd :action GotoDeclaration <CR>
+let g:WhichKeyDesc_windows_go_to_declaration = "gd  Go to Declaration"
+
+nnoremap gc :action GoToClass <CR>
+let g:WhichKeyDesc_windows_go_to_class = "gc Go to Class"
+
+" FileStructurePopup
+nnoremap gs :action FileStructurePopup <CR>
+let g:WhichKeyDesc_find_path = "gs File Structure"

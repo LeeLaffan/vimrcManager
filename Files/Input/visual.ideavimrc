@@ -1,0 +1,1 @@
+﻿vnoremap <Space>f :action FindWordAtCaret <CR>
