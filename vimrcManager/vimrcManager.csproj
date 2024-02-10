@@ -15,6 +15,105 @@
 
     <ItemGroup>
       <None Remove="appsettings.json" />
+      <Content Include="..\Files\Input\.order.vimrc">
+        <Link>Files\Input\.order.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\.vimrc">
+        <Link>Files\Input\.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\breakpoints.ideavimrc">
+        <Link>Files\Input\breakpoints.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\commands.ideavimrc">
+        <Link>Files\Input\commands.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\debug.ideavimrc">
+        <Link>Files\Input\debug.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\errors.ideavimrc">
+        <Link>Files\Input\errors.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\file_management.ideavimrc">
+        <Link>Files\Input\file_management.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\g_based_commands.ideavimrc">
+        <Link>Files\Input\g_based_commands.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\leader.vimrc">
+        <Link>Files\Input\leader.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\navigation.ideavimrc">
+        <Link>Files\Input\navigation.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\registers.ideavimrc">
+        <Link>Files\Input\registers.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\resharper.ideavimrc">
+        <Link>Files\Input\resharper.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\sets.ideavimrc">
+        <Link>Files\Input\sets.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\todo.ideavimrc">
+        <Link>Files\Input\todo.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrcManager.commands.vimrc">
+        <Link>Files\Input\vimrcManager.commands.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\.order.vimrc">
+        <Link>Files\Input\vimrc\.order.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\center_screen.vimrc">
+        <Link>Files\Input\vimrc\center_screen.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\insert_chars.vimrc">
+        <Link>Files\Input\vimrc\insert_chars.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\macros.vimrc">
+        <Link>Files\Input\vimrc\macros.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\marks.vimrc">
+        <Link>Files\Input\vimrc\marks.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\navigation.vimrc">
+        <Link>Files\Input\vimrc\navigation.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\numbers.vim">
+        <Link>Files\Input\vimrc\numbers.vim</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\o_keys.vimrc">
+        <Link>Files\Input\vimrc\o_keys.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\registers.vimrc">
+        <Link>Files\Input\vimrc\registers.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\register_functions.vimrc">
+        <Link>Files\Input\vimrc\register_functions.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\selects.vimrc">
+        <Link>Files\Input\vimrc\selects.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\sets.vimrc">
+        <Link>Files\Input\vimrc\sets.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\visual.vimrc">
+        <Link>Files\Input\vimrc\visual.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\vimrc\windows.vimrc">
+        <Link>Files\Input\vimrc\windows.vimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\visual.ideavimrc">
+        <Link>Files\Input\visual.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Input\windows.ideavimrc">
+        <Link>Files\Input\windows.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Output\.ideavimrc">
+        <Link>Files\Output\.ideavimrc</Link>
+      </Content>
+      <Content Include="..\Files\Output\.vimrc">
+        <Link>Files\Output\.vimrc</Link>
+      </Content>
       <Content Include="appsettings.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
